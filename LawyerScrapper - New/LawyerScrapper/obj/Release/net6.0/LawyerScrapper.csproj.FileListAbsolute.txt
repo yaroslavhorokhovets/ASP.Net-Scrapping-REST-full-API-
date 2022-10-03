@@ -1,0 +1,5 @@
+E:\Clients\N\LawyerScrapper\LawyerScrapper\obj\Release\net6.0\LawyerScrapper.csproj.AssemblyReference.cache
+E:\Clients\N\LawyerScrapper\LawyerScrapper\obj\Release\net6.0\LawyerScrapper.GeneratedMSBuildEditorConfig.editorconfig
+E:\Clients\N\LawyerScrapper\LawyerScrapper\obj\Release\net6.0\LawyerScrapper.AssemblyInfoInputs.cache
+E:\Clients\N\LawyerScrapper\LawyerScrapper\obj\Release\net6.0\LawyerScrapper.AssemblyInfo.cs
+E:\Clients\N\LawyerScrapper\LawyerScrapper\obj\Release\net6.0\LawyerScrapper.csproj.CoreCompileInputs.cache

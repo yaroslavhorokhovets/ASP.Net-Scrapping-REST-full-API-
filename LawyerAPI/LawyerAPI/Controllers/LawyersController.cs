@@ -52,7 +52,7 @@ namespace LawyerAPI.Controllers
         // PUT: api/Lawyer/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLawyer(int id, Court lawyer)
+        public async Task<IActionResult> PutLawyer(int id, Lawyer lawyer)
         {
             if (id != lawyer.ID)
             {

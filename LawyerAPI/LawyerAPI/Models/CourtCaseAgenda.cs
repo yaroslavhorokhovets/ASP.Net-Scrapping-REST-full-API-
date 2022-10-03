@@ -5,7 +5,7 @@
         public int ID { get; set; }
         public string? CourtCaseNo { get; set; }
         public string? HearingGeneral { get; set; }
-        public DateTime HearingDateTime { get; set; }
+        public string? HearingDateTime { get; set; }
         public string? HearingType { get; set; }
         public string? CourtType { get; set; }
         public string? ChamberID { get; set; }

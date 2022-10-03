@@ -1,4 +1,5 @@
 ﻿using LawyerScrapper.Data;
+using LawyerScrapper.Helper;
 using LawyerScrapper.Model;
 using LawyerScrapper.Service;
 using Microsoft.EntityFrameworkCore;
@@ -18,15 +19,14 @@ namespace LawyerScrapper
         static void Main(string[] args)
         {
             string searchStringValue = args[0];
-            Console.WriteLine("Scrapper started");
+            Console.WriteLine("Scrapper started!".ToUpper());
             RegisterServices();
-            string[] langs = { "fr", "nl" };
-            foreach (string lang in langs)
-            {
-                Console.WriteLine(lang);
-                ScrapeCourtList(searchStringValue, lang).Wait();
-            }
-            ScrapeLawyerDetail().Wait();
+            string[] langs = { "nl", "fr" };
+            // for(int i = 0; i < langs.Length; i++){
+                ScrapeCourtList(searchStringValue, langs[0]).Wait();
+                ScrapeLawyerDetail(langs[0]).Wait();
+            // }
+            return;
         }
         public static void RegisterServices()
         {
@@ -55,15 +55,12 @@ namespace LawyerScrapper
             {
                 court.AvailableDates = await dossierScraper.GetAvailableDates(court, lg);
             }
-            // For Testing: scrape first Court and first day
-            // var tmpCourt = courtList[0];
-            // ScrapeCourtDetailList(tmpCourt, tmpCourt.AvailableDates[0]).Wait();
 
             foreach (var court in courtList)
             {
                 if(court.AvailableDates != null)
                 {
-                    if (court.AvailableDates.Count <= 0)
+                    if (court.AvailableDates.Count < 1)
                     {
                         continue;
                     }
@@ -71,6 +68,10 @@ namespace LawyerScrapper
                     {
                         foreach (var date in court.AvailableDates)
                         {
+                            if (date != Constants.today)
+                            {
+                                continue;
+                            }
                             ScrapeCourtDetailList(court, date, lg).Wait();
                         }
                     }
@@ -83,11 +84,11 @@ namespace LawyerScrapper
         {
             var dossierScraper = _serviceProvider.GetService<IDossierScraper>();
             var dbService = _serviceProvider.GetService<ILawyerDbService>();
-            var courtList = await dossierScraper.GetSpecificDateCourtList(courtDto, availableDate, lg);
-            Console.WriteLine($"The count of the courts is {courtList.Count}.");
+            var courtcaseList = await dossierScraper.GetSpecificDateCourtCaseList(courtDto, availableDate, lg);
+            Console.WriteLine($"The number of the court cases is {courtcaseList.Count} at {availableDate}.");
             var courtWithNames = new List<CourtDetailDto>();
-            
-            foreach (var court in courtList)
+
+            foreach (var court in courtcaseList)
             {
                 if (!string.IsNullOrEmpty(court.LaywersLink))
                 {
@@ -98,22 +99,22 @@ namespace LawyerScrapper
                     }
                 }
             }
-            
+
             if (courtWithNames.Count == 0)
             {
-                Console.WriteLine($"There is not court lawyer for inserting.");
+                Console.WriteLine($"There are no court cases with lawyers' names.");
                 return;
             }
-            var insertedCount = await dbService.InsertCourtDetailData(courtWithNames);
-            Console.WriteLine($"Inserted court lawyer {insertedCount} successfully");
+            var insertedCount = await dbService.InsertCourtDetailData(courtWithNames, lg);
+            Console.WriteLine($"You have successfully inserted {insertedCount} court cases!");
         }
 
-        public static async Task ScrapeLawyerDetail()
+        public static async Task ScrapeLawyerDetail(string lg)
         {
             var advocaatScraper = _serviceProvider.GetService<IAdvocaatScraper>();
             var dbService = _serviceProvider.GetService<ILawyerDbService>();
             var abocatsScraper = _serviceProvider.GetService<IAvocatsScraper>();
-            List<string> fullNames = dbService.GetDistintFullNames();
+            List<string> fullNames = dbService.GetDistintFullNames(lg);
             List<LawyerDto> lawyers = new List<LawyerDto>();
 
             List<string> notFoundList = new List<string>();
@@ -134,7 +135,7 @@ namespace LawyerScrapper
             if (lawyers.Count > 0)
             {
                 // insert lawyer data to lawyer table
-                string result = await dbService.InsertLawyerData(lawyers);
+                string result = await dbService.InsertLawyerData(lawyers, lg);
                 Console.WriteLine($"{result}");
                 lawyers.Clear();
             }
@@ -154,7 +155,7 @@ namespace LawyerScrapper
             if (lawyers.Count > 0)
             {
                 // insert lawyer data to lawyer table
-                string result = await dbService.InsertLawyerData(lawyers);
+                string result = await dbService.InsertLawyerData(lawyers, lg);
                 Console.WriteLine($"{result}");
                 lawyers.Clear();
             }

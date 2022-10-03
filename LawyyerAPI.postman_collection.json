@@ -1,0 +1,387 @@
+{
+	"info": {
+		"_postman_id": "3ade25d4-5a4a-40f5-9008-57fe9b453cd2",
+		"name": "LawyyerAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Lawyer",
+			"item": [
+				{
+					"name": "Get All Lawyers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7213/api/Lawyers",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"Lawyers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Lawyer of id 5",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7213/api/Lawyers/5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"Lawyers",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Lawyer of id 5",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":5,\r\n    \"name\": \"china\",\r\n    \"sureName\": \"usa_japan\",\r\n    \"email\": \"test@gmail.com\",\r\n    \"phone\": \"+30834234234\",\r\n    \"fax\": \"12345678990098765412\",\r\n    \"address\": \"china_japan\",\r\n    \"website\": \"https://locasjkwe.sdjis\",\r\n    \"country\": \"fr\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7213/api/Lawyers/5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"Lawyers",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new Lawyer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ttt\",\r\n    \"sureName\": \"surename\",\r\n    \"email\": \"test@gmail.com\",\r\n    \"phone\": \"+30834234234\",\r\n    \"fax\": \"123693214\",\r\n    \"address\": \"usa usa\",\r\n    \"website\": \"https://locasjkwe.sdjis\",\r\n    \"country\": \"fr\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7213/api/Lawyers",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"Lawyers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE a Lawyer if id 5",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7213/api/Lawyers/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"Lawyers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Court",
+			"item": [
+				{
+					"name": "Get All Courts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7213/api/Courts",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"Courts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Court of id 5",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7213/api/Courts/4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"Courts",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Court of id 5",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":4,\r\n    \"canton\": \"LEVANON\",\r\n    \"codification\": \"5101002\",\r\n    \"division\": \"Pas de division / Siège\",\r\n    \"divisionId\": \"000\",\r\n    \"courtId\": \"510100-020100\",\r\n    \"jurAnnexe\": \"020100\",\r\n    \"jurNum\": \"510100\",\r\n    \"typeJuridiction\": \"COUR D'APPEL - GREFFE CORRECTIONNEL\",\r\n    \"typeJuridictionId\": 76,\r\n    \"country\": \"fr\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7213/api/Courts/4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"Courts",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new Court",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"canton\": \"LIEGE\",\r\n    \"codification\": \"5101002\",\r\n    \"division\": \"Pas de division / Siège\",\r\n    \"divisionId\": \"000\",\r\n    \"courtId\": \"510100-020100\",\r\n    \"jurAnnexe\": \"020100\",\r\n    \"jurNum\": \"510100\",\r\n    \"typeJuridiction\": \"COUR D'APPEL - GREFFE CORRECTIONNEL\",\r\n    \"typeJuridictionId\": 76,\r\n    \"country\": \"fr\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7213/api/Courts",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"Courts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Court of id 5",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7213/api/Courts/5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"Courts",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CourtCaseAgenda",
+			"item": [
+				{
+					"name": "Get All CourtCaseAgendas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7213/api/CourtCaseAgendas",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"CourtCaseAgendas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a CourtCaseAgenda of id 5",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7213/api/CourtCaseAgendas/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"CourtCaseAgendas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a CourtCaseAgenda of id 5",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":5,\r\n    \"courtCaseNo\": \"RTETERTG356ERTETR674345erte, weweweWEWE,QWEQWE,QWEQWE,QWEQWEQWEQWEQWE/QW/EQWE\",\r\n    \"hearingGeneral\": \"COUR D'APPEL ANVERS, GREFFE CORRECTIONNEL\",\r\n    \"hearingDateTime\": \"2022-09-29T08:50:00\",\r\n    \"hearingType\": \"Voor uitspraak\",\r\n    \"courtType\": \"COUR D'APPEL ANVERS\",\r\n    \"chamberID\": \"C6\",\r\n    \"courtLocation\": \" GREFFE CORRECTIONNEL\",\r\n    \"lawyerName\": \"BEULS\",\r\n    \"lawyerSurename\": \"Lies\",\r\n    \"country\": \"nl\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7213/api/CourtCaseAgendas/5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"CourtCaseAgendas",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new CourtCaseAgenda",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"courtCaseNo\": \"2022 / CO / 572, 2022 / PGA / 1660, 2022 / VJ11 / 583\",\r\n        \"hearingGeneral\": \"COUR D'APPEL ANVERS, GREFFE CORRECTIONNEL\",\r\n        \"hearingDateTime\": \"2022-09-29T08:50:00\",\r\n        \"hearingType\": \"Voor uitspraak\",\r\n        \"courtType\": \"COUR D'APPEL ANVERS\",\r\n        \"chamberID\": \"C6\",\r\n        \"courtLocation\": \" GREFFE CORRECTIONNEL\",\r\n        \"lawyerName\": \"BEULS\",\r\n        \"lawyerSurename\": \"Lies\",\r\n        \"country\": \"fr\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7213/api/CourtCaseAgendas",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"CourtCaseAgendas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a CourtCaseAgenda of id 5",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7213/api/CourtCaseAgendas/5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"CourtCaseAgendas",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
